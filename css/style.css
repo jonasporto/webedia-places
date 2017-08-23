@@ -84,6 +84,13 @@ html {
   top: 20%;
 }
 
+.data-wrapper .office-details {
+  margin-top: 10px;
+  background: #fff;
+  padding: 10px;
+  border-bottom: 1px solid;
+}
+
 .back {
   text-decoration: none;
   color: #fff;
