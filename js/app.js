@@ -356,7 +356,25 @@ var places = [
 
 	google.maps.event.addDomListener(window, 'load', () => { 
 		initMap(); 
-		initPanorama();
+		//initPanorama();
 	});
+
+
+	fetch("https://api.myjson.com/bins/15fs25")
+	  .then(data => data.json())
+	  .then(data => {
+	  	renderSidebar(data)
+	  	return data;
+      })
+
+
+    const renderSidebar = (offices) => {
+      $offices = `
+	    <ul> 
+	  	  ${offices.map(office => `<li>${office.title}</li>`).join('')}
+	  	</ul>`;
+
+	  document.querySelector('.sidebar nav').innerHTML = $offices;
+    }
 
 })(styles);

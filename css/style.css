@@ -3,32 +3,44 @@
   padding: 0;
 }
 
-body {
-  background: #4c1f37;
-}
-
-header, footer{
-  background: #000;
-  min-height: 50px;
-  width: 100%;
-}
-
-footer{
-  position: absolute;
-  bottom: 0;
-}
-
-
-main{
-  width: 90vw;
-  margin: 0 auto;
-  margin-top:50px;
-}
-
 #map, #panorama{
-  height: 200px;
-  overflow: hidden;
-  padding-top: 30px;
-  padding-bottom: 22.25%;
+  min-height: 200px;
+  padding: 20%;
   position: relative;
+}
+
+
+.sidebar {
+  background: #ddd;
+  grid-area: sidebar;
+}
+
+.content {
+  background: #000;
+  grid-area: content;	
+}
+
+nav li {
+  background: #ddd;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+nav li:hover {
+  background: #000;
+  color: #ccc;
+}
+.wrapper {
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "sidebar content content content";
+}
+
+@media(max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas: "sidebar" 
+                         "content";
+  }
 }
