@@ -17,7 +17,6 @@
           },
           visible: true
     });
-
     // 360 degrees of streetview panorama
     let degree = panorama.getPov().heading;
     setTimeout(() => {
@@ -37,5 +36,21 @@
 
   Array.from(document.querySelectorAll(".pin"))
        .forEach(pin => pin.addEventListener("mouseover", panoramaForPin, false))
+  
+  Array.from(document.querySelectorAll(".pin")).forEach(pin => {
+    pin.addEventListener(
+      "click",
+      () => {
+        document.getElementById("p1").className += " hidden";
+        document.getElementById("p2").className += " visible";
+        console.log(pin.getAttribute("data-hq"))
+      })
+  });
+
+  document.getElementById("back").addEventListener("click", () => {
+    document.getElementById("p1").className = "pin-wrapper";
+    document.getElementById("p2").className = "data-wrapper";
+  });
+
 
 })();
